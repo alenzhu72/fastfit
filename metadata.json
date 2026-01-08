@@ -1,0 +1,8 @@
+{
+  "name": "XMEGA FastFit",
+  "description": "A 16:8 fasting and fitness companion tailored for Singapore routines, featuring photo calorie tracking and smart walk-it-off coaching.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
