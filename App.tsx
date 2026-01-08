@@ -52,8 +52,8 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen max-w-md mx-auto bg-slate-950 pb-24 shadow-2xl relative">
-      {/* Header */}
-      <header className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl p-6 flex justify-between items-center border-b border-slate-800">
+      {/* Header with Safe Area support */}
+      <header className="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-xl px-6 pb-4 pt-[calc(1rem+env(safe-area-inset-top))] flex justify-between items-center border-b border-slate-800">
         <div className="flex items-center gap-3">
           <div className="bg-emerald-500 p-2 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.4)]">
             <FastForward className="text-white w-6 h-6" />
@@ -156,11 +156,11 @@ const App: React.FC = () => {
 
       </main>
 
-      {/* Bottom Nav */}
-      <nav className="fixed bottom-0 w-full max-w-md bg-slate-900/95 backdrop-blur-lg border-t border-slate-800 px-8 py-4 flex justify-between items-center z-40">
+      {/* Bottom Nav with Safe Area support */}
+      <nav className="fixed bottom-0 w-full max-w-md bg-slate-900/95 backdrop-blur-lg border-t border-slate-800 px-8 pb-[calc(1rem+env(safe-area-inset-bottom))] pt-4 flex justify-between items-center z-40">
         <NavIcon icon={<HomeIcon />} active label="Home" />
         <NavIcon icon={<StatIcon />} label="Insights" />
-        <button className="bg-emerald-500 -mt-12 w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.5)] border-4 border-slate-950 hover:scale-105 transition-transform">
+        <button className="bg-emerald-500 -mt-12 w-14 h-14 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.5)] border-4 border-slate-950 hover:scale-105 transition-transform active:scale-95">
           <span className="text-2xl text-white">+</span>
         </button>
         <NavIcon icon={<CommunityIcon />} label="Discover" />
@@ -171,7 +171,7 @@ const App: React.FC = () => {
 };
 
 const NavIcon = ({ icon, active = false, label }: { icon: React.ReactNode, active?: boolean, label: string }) => (
-  <div className={`flex flex-col items-center gap-1 ${active ? 'text-emerald-400' : 'text-slate-500'}`}>
+  <div className={`flex flex-col items-center gap-1 ${active ? 'text-emerald-400' : 'text-slate-500'} active:scale-90 transition-transform`}>
     {icon}
     <span className="text-[10px] font-bold uppercase tracking-tighter">{label}</span>
   </div>
